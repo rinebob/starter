@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyB_5WDcixrvJhKyG-xNGjHvGkqSxvxCUgQ",
-    authDomain: "starter-bed69.firebaseapp.com",
-    projectId: "starter-bed69",
-    storageBucket: "starter-bed69.appspot.com",
-    messagingSenderId: "1012207223110",
-    appId: "1:1012207223110:web:52782d886e4cd14deda547"
+    projectId: 'starter-bed69',
+    appId: '1:1012207223110:web:52782d886e4cd14deda547',
+    storageBucket: 'starter-bed69.appspot.com',
+    locationId: 'us-west2',
+    apiKey: 'AIzaSyB_5WDcixrvJhKyG-xNGjHvGkqSxvxCUgQ',
+    authDomain: 'starter-bed69.firebaseapp.com',
+    messagingSenderId: '1012207223110',
   },
   api: {},
 
