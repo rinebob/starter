@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "starter-bed69"
+  },
+  "targets": {
+    "starter-bed69": {
+      "hosting": {
+        "starter": [
+          "starter-bed69"
+        ]
+      }
+    }
+  }
+}
