@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoursesViewComponent } from './courses-view/courses-view.component';
-
+import { CoursesView } from './courses-view/courses-view.component';
+import { EntitiesPanelModule } from '../entities-panel/entities-panel.module';
+import { EntitiesTableModule } from '../entities-table/entities-table.module';
 
 
 
 @NgModule({
   declarations: [
-    CoursesViewComponent
+    CoursesView
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EntitiesPanelModule,
+    EntitiesTableModule,
   ],
   exports: [
-    CoursesViewComponent
+    CoursesView
   ]
 })
 export class EntitiesViewModule { }

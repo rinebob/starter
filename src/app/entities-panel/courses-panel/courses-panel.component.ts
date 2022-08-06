@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {Course} from '../../common/interfaces';
+import { EntitiesPanelBase } from '../entities-panel-base.component';
 
 @Component({
   selector: 'st-courses-panel',
@@ -6,9 +8,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./courses-panel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesPanelComponent implements OnInit {
+export class CoursesPanel extends EntitiesPanelBase<Course> implements OnInit {
 
-  constructor() { }
+  constructor() {
+    super();
+   }
 
   ngOnInit(): void {
   }
