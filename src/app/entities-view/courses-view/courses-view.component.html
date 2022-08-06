@@ -1,6 +1,12 @@
+
+<st-courses-crud [allEntities]="(allEntities$ | async)!"
+>
+
+</st-courses-crud>
+
 <st-courses-list-panel [selectedEntity]="(selectedEntity$ | async)!"
-                  [allEntities]="(allEntities$ | async)!"
-                  [tableData]="(tableData$ | async)!"
+                       [allEntities]="(allEntities$ | async)!"
+                       [tableData]="(tableData$ | async)!"
 
 >
 </st-courses-list-panel>

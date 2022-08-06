@@ -13,6 +13,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { EntitiesViewModule } from './entities-view/entities-view.module';
 import { EntitiesPanelModule } from './entities-panel/entities-panel.module';
 import { EntitiesTableModule } from './entities-table/entities-table.module';
+import { EntitiesCrudModule } from './entities-crud/entities-crud.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EntitiesTableModule } from './entities-table/entities-table.module';
     provideStorage(() => getStorage()),
     EntitiesViewModule,
     EntitiesPanelModule,
-    EntitiesTableModule
+    EntitiesTableModule,
+    EntitiesCrudModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoursesView } from './courses-view/courses-view.component';
+import { EntitiesCrudModule } from '../entities-crud/entities-crud.module';
 import { EntitiesPanelModule } from '../entities-panel/entities-panel.module';
 import { EntitiesTableModule } from '../entities-table/entities-table.module';
 
@@ -12,6 +13,7 @@ import { EntitiesTableModule } from '../entities-table/entities-table.module';
   ],
   imports: [
     CommonModule,
+    EntitiesCrudModule,
     EntitiesPanelModule,
     EntitiesTableModule,
   ],
