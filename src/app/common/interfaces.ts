@@ -1,4 +1,4 @@
-
+import {Observable, Subscription} from 'rxjs';
 export interface EntityBase {
     id: string;
     displayName: string;
@@ -26,5 +26,21 @@ export interface EntitiesTableColumn {
     property: string;
 }
 
+export interface EntitiesViewState<T extends EntityBase> {
+    selectedEntity: T;
+    allEntities: T[];
+    tableData: T[];
+}
 
+export interface CoursesViewState extends EntitiesViewState<Course> {
+}
+
+export interface EntitiesViewStoreInterface<T extends EntityBase> {
+    selectedEntity$: Observable<T>;
+    setSelectedEntity: (observableOrValue: T|Observable<T>) => Subscription;
+    allEntities$: Observable<T[]>;
+    setAllEntities: (observableOrValue: T[]|Observable<T[]>) => Subscription;
+    tableData$: Observable<T[]>;
+    setTableData: (observableOrValue: T[]|Observable<T[]>) => Subscription;
+}
 
