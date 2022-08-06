@@ -1,7 +1,9 @@
 
-
-export interface Course {
-    id: number;
+export interface EntityBase {
+    id: string;
+    displayName: string;
+}
+export interface Course extends EntityBase {
     description: string;
     longDescription: string;
     iconUrl: string;
@@ -11,8 +13,7 @@ export interface Course {
     url: string;
 }
 
-export interface Lesson {
-    id: number;
+export interface Lesson extends EntityBase {
     description: string;
     'duration': string;
     'seqNo': number;

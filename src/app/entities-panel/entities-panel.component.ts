@@ -1,16 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
+import {Component } from '@angular/core';
+import { EntityBase } from '../common/interfaces';
 @Component({
-  selector: 'st-entities-panel',
-  templateUrl: './entities-panel.component.html',
-  styleUrls: ['./entities-panel.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template:  ``,
 })
-export class EntitiesPanelComponent implements OnInit {
+export abstract class EntitiesPanel<T extends EntityBase>  {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

@@ -1,16 +1,18 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'st-entities-view',
-  templateUrl: './entities-view.component.html',
-  styleUrls: ['./entities-view.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class EntitiesViewComponent implements OnInit {
+import {EntityBase} from '../common/interfaces';
+export abstract class EntitiesView<T extends EntityBase>  {
 
   constructor() { }
 
-  ngOnInit(): void {
+  getEntity(collection: string, id: string) {
+    
+  }
+
+  listEntities(collection: string) {
+
+  }
+
+  createEntity(collection: string, entity: T) {
+
   }
 
 }

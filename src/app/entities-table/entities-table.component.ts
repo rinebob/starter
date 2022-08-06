@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {EntityBase} from '../common/interfaces';
 
 @Component({
-  selector: 'st-entities-table',
-  templateUrl: './entities-table.component.html',
-  styleUrls: ['./entities-table.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ``,
 })
-export class EntitiesTableComponent implements OnInit {
+export abstract class EntitiesTable<T extends EntityBase> implements OnInit {
 
   constructor() { }
 
