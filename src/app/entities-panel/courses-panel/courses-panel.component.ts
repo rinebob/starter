@@ -5,7 +5,7 @@ import { EntitiesPanelBase } from '../entities-panel-base.component';
 @Component({
   selector: 'st-courses-panel',
   templateUrl: './courses-panel.component.html',
-  styleUrls: ['./courses-panel.component.sass'],
+  styleUrls: ['../entities-panel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesPanel extends EntitiesPanelBase<Course> implements OnInit {

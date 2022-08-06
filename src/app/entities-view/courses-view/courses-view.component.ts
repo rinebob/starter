@@ -3,6 +3,7 @@ import {Course} from '../../common/interfaces';
 import {EntitiesViewBase} from '../entities-view-base.component';
 import { CoursesViewStore } from './courses-view-store';
 import {COURSES} from '../../../assets/data/courses_data';
+import {convertAuCourseListToStCourseList} from '../../common/utils';
 
 @Component({
   selector: 'st-courses-view',
@@ -18,8 +19,11 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
   }
 
   ngOnInit(): void {
-    const courses: Course[] = Object.values(COURSES);
+    const courses: Course[] = convertAuCourseListToStCourseList(COURSES);
+
     console.log('cV ngOI courses: ', courses);
+
+    this.setSelectedEntity(courses[0]);
     this.setAllEntities(courses);
     this.setTableData(courses)
   }
