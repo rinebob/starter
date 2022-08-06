@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntitiesViewComponent } from './entities-view.component';
+import { EntitiesViewComponent } from './entities-view-base.component';
 
 describe('EntitiesViewComponent', () => {
   let component: EntitiesViewComponent;

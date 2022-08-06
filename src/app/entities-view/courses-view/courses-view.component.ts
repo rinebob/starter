@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {Course} from '../../common/interfaces';
-import {EntitiesView} from '../entities-view.component';
+import {EntitiesViewBase} from '../entities-view-base.component';
 
 @Component({
   selector: 'st-courses-view',
@@ -8,7 +8,7 @@ import {EntitiesView} from '../entities-view.component';
   styleUrls: ['../entities-view.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesView extends EntitiesView<Course> implements OnInit {
+export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
 
   constructor() { 
     super();

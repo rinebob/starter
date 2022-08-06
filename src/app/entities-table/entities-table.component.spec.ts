@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntitiesTableComponent } from './entities-table.component';
+import { EntitiesTableComponent } from './entities-table-base.component';
 
 describe('EntitiesTableComponent', () => {
   let component: EntitiesTableComponent;

@@ -1,5 +1,5 @@
 import {EntityBase} from '../common/interfaces';
-export abstract class EntitiesView<T extends EntityBase>  {
+export abstract class EntitiesViewBase<T extends EntityBase>  {
 
   constructor() { }
 

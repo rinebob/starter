@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {Course} from '../../common/interfaces';
-import { EntitiesTable } from '../entities-table.component';
+import { EntitiesTableBase } from '../entities-table-base.component';
 
 @Component({
   selector: 'st-courses-table',
@@ -8,7 +8,7 @@ import { EntitiesTable } from '../entities-table.component';
   styleUrls: ['./courses-table.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesTable extends EntitiesTable<Course> {
+export class CoursesTable extends EntitiesTableBase<Course> {
 
   constructor() {
     super();

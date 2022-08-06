@@ -3,7 +3,7 @@ import { EntityBase } from '../common/interfaces';
 @Component({
   template:  ``,
 })
-export abstract class EntitiesPanel<T extends EntityBase>  {
+export abstract class EntitiesPanelBase<T extends EntityBase>  {
 
   constructor() { }
 
