@@ -10,6 +10,9 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { EntitiesViewModule } from './entities-view/entities-view.module';
+import { EntitiesPanelModule } from './entities-panel/entities-panel.module';
+import { EntitiesTableModule } from './entities-table/entities-table.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    EntitiesViewModule,
+    EntitiesPanelModule,
+    EntitiesTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
