@@ -15,7 +15,16 @@ export interface Course extends EntityBase {
 
 export interface Lesson extends EntityBase {
     description: string;
-    'duration': string;
-    'seqNo': number;
+    duration: string;
+    seqNo: number;
     courseId: number;
 }
+
+export interface EntitiesTableColumn {
+    name: string;
+    label: string;
+    property: string;
+}
+
+
+
