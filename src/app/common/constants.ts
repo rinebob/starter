@@ -1,4 +1,4 @@
-import { Course, EntitiesTableColumn, EntitiesViewState } from "./interfaces";
+import { Course, EntitiesTableColumn, EntitiesViewState, EntityBase } from "./interfaces";
 
 export const CoursesTableColumns: EntitiesTableColumn[] = [
     {
@@ -38,6 +38,11 @@ export const CoursesTableColumns: EntitiesTableColumn[] = [
 
     },
 ];
+
+export const ENTITY_INITIALIZER: EntityBase = {
+    id: '',
+    displayName: '',
+}
 
 export const COURSE_INITIALIZER: Course = {
     id: '',

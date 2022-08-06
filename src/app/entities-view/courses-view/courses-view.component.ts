@@ -20,8 +20,9 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
   ngOnInit(): void {
     const courses: Course[] = Object.values(COURSES);
     console.log('cV ngOI courses: ', courses);
+    this.setSelectedEntity(courses[0]);
     this.setAllEntities(courses);
-    this.setTableData(courses)
+    this.setTableData(courses.slice(3, 7))
   }
 
 }

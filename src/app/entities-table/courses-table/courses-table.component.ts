@@ -4,8 +4,8 @@ import { EntitiesTableBase } from '../entities-table-base.component';
 
 @Component({
   selector: 'st-courses-table',
-  templateUrl: './courses-table.component.html',
-  styleUrls: ['./courses-table.component.sass'],
+  templateUrl: '../entities-table.component.html',
+  styleUrls: ['../entities-table.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesTable extends EntitiesTableBase<Course> {

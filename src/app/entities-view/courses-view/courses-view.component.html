@@ -1,14 +1,7 @@
-<st-courses-panel></st-courses-panel>
+<st-courses-panel [selectedEntity]="(selectedEntity$ | async)!"
+                  [allEntities]="(allEntities$ | async)!"
+                  [tableData]="(tableData$ | async)!"
 
-<ng-container *ngIf="allEntities$ | async as entities">
-    
-    <div *ngFor="let entity of entities"
-         class="entity"
-    >
-
-        {{entity | json}}
-
-    </div>
-
-</ng-container>
+>
+</st-courses-panel>
 
