@@ -1,6 +1,6 @@
 import { Course, EntitiesTableColumn, EntitiesViewState, EntityBase } from "./interfaces";
 
-export const CoursesTableColumns: EntitiesTableColumn[] = [
+export const COURSES_TABLE_COLUMNS: EntitiesTableColumn[] = [
     {
         name: 'id',
         label: 'ID',
@@ -25,12 +25,12 @@ export const CoursesTableColumns: EntitiesTableColumn[] = [
         property: 'lessonsCount',
 
     },
-    {
-        name: 'categories',
-        label: 'Categories',
-        property: 'categories',
+    // {
+    //     name: 'categories',
+    //     label: 'Categories',
+    //     property: 'categories',
 
-    },
+    // },
     {
         name: 'seqNo',
         label: 'Sequence no.',
@@ -51,7 +51,7 @@ export const COURSE_INITIALIZER: Course = {
     longDescription: '',
     iconUrl: '',
     lessonsCount: 0,
-    categories: [],
+    // categories: [],
     seqNo: 0,
     url: '',
 };

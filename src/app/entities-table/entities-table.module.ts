@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatTableModule} from '@angular/material/table'
 import { CoursesTable } from './courses-table/courses-table.component';
 
 
@@ -9,7 +10,8 @@ import { CoursesTable } from './courses-table/courses-table.component';
     CoursesTable
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
   ],
   exports: [
     CoursesTable
