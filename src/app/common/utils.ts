@@ -1,4 +1,4 @@
-import {AuCourse, Course} from '../common/interfaces';
+import {AuCourse, AuLesson, Course, Lesson} from '../common/interfaces';
 // from material.angular.io/components/sort/examples
 export function compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
@@ -13,7 +13,7 @@ export function convertAuCourseToStCourse(course: AuCourse): Course {
         displayName: course.description,
         description: course.longDescription,
         iconUrl: course.iconUrl,
-        lessonsCount: course.lessonsCount,
+        lessonsCount: course.lessonsCount ?? 0,
         // categories: course.categories,
         seqNo: course.seqNo,
         url: course.url,
@@ -31,4 +31,30 @@ export function convertAuCourseListToStCourseList(courses: AuCourse[]) {
     }
     
     return newCourses;
+}
+
+// converts an Angular University Firebase Essentials AuLesson object
+// to a StarterApp Lesson object
+export function convertAuLessonToStLesson(lesson: AuLesson): Lesson {
+
+    const newLesson: Lesson = {
+        id: (lesson.id).toString(),
+        displayName: lesson.description,
+        duration: lesson.duration,
+        seqNo: lesson.seqNo,
+        courseId: lesson.courseId,
+    }
+
+    return newLesson;
+}
+
+export function convertAuLessonListToStLessonList(lessons: AuLesson[]) {
+    let newLessons: Lesson[] = [];
+
+    for (const lesson of Object.values(lessons)) {
+        const newLesson = convertAuLessonToStLesson(lesson);
+        newLessons.push(newLesson);
+    }
+    
+    return newLessons;
 }

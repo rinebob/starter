@@ -20,7 +20,7 @@ export interface AuCourse {
     url: string;
 }
 
-// StarterApp course converted from AuCourse interface
+// StarterApp Course object converted from AuCourse object interface
 export interface Course extends EntityBase {
     [key: string]: CourseTypes;
     description: string;
@@ -35,9 +35,17 @@ export interface Course extends EntityBase {
 export type CourseKeys = keyof Course;
 export type CourseTypes = Course[keyof Course];
 
+export interface AuLesson {
+    id: number,
+    description: string;
+    duration: string;
+    seqNo: number;
+    courseId: number;
+}
+
+// StarterApp Lesson object converted from AuLesson object interface
 export interface Lesson extends EntityBase {
     [key: string]: LessonTypes;
-    description: string;
     duration: string;
     seqNo: number;
     courseId: number;
@@ -59,6 +67,7 @@ export interface EntitiesViewState<T extends EntityBase> {
 }
 
 export interface CoursesViewState extends EntitiesViewState<Course> {
+    allLessons: Lesson[];
 }
 
 export interface EntitiesViewStoreInterface<T extends EntityBase> {
@@ -68,5 +77,10 @@ export interface EntitiesViewStoreInterface<T extends EntityBase> {
     setAllEntities: (observableOrValue: T[]|Observable<T[]>) => Subscription;
     tableData$: Observable<T[]>;
     setTableData: (observableOrValue: T[]|Observable<T[]>) => Subscription;
+}
+
+export interface CoursesViewStoreInterface extends EntitiesViewStoreInterface<Course> {
+    allLessons$: Observable<Lesson[]>;
+    setAllLessons: (observableOrValue: Lesson[]|Observable<Lesson[]>) => Subscription;
 }
 

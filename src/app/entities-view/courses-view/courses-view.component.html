@@ -1,11 +1,11 @@
 
-<st-courses-crud [allEntities]="(allEntities$ | async)!"
+<st-courses-crud [allEntities]="(allCourses$ | async)!"
 >
 
 </st-courses-crud>
 
-<st-courses-list-panel [selectedEntity]="(selectedEntity$ | async)!"
-                       [allEntities]="(allEntities$ | async)!"
+<st-courses-list-panel [selectedEntity]="(selectedCourse$ | async)!"
+                       [allEntities]="(allCourses$ | async)!"
                        [tableData]="(tableData$ | async)!"
 
 >

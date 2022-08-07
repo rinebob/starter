@@ -1,4 +1,4 @@
-import { Course, EntitiesTableColumn, EntitiesViewState, EntityBase } from "./interfaces";
+import { Course, CoursesViewState, EntitiesTableColumn, EntitiesViewState, EntityBase } from "./interfaces";
 
 export const COURSES_TABLE_COLUMNS: EntitiesTableColumn[] = [
     {
@@ -56,8 +56,9 @@ export const COURSE_INITIALIZER: Course = {
     url: '',
 };
 
-export const COURSES_VIEW_STORE_INITIALIZER: EntitiesViewState<Course> = {
+export const COURSES_VIEW_STORE_INITIALIZER: CoursesViewState = {
     selectedEntity: COURSE_INITIALIZER,
     allEntities: [],
     tableData: [],
+    allLessons: [],
 }
