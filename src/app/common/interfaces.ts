@@ -48,7 +48,7 @@ export interface Lesson extends EntityBase {
     [key: string]: LessonTypes;
     duration: string;
     seqNo: number;
-    courseId: number;
+    courseId: string |number;
 }
 
 export type LessonKeys = keyof Lesson;
@@ -83,4 +83,3 @@ export interface CoursesViewStoreInterface extends EntitiesViewStoreInterface<Co
     allLessons$: Observable<Lesson[]>;
     setAllLessons: (observableOrValue: Lesson[]|Observable<Lesson[]>) => Subscription;
 }
-

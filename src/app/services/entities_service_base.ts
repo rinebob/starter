@@ -5,7 +5,7 @@ import 'firebase/firestore';
 import * as afs from '@angular/fire/firestore';
 
 import {EntityBase} from '../common/interfaces';
-import { setDoc, updateDoc } from '@angular/fire/firestore';
+import { doc, setDoc, updateDoc } from '@angular/fire/firestore';
 
 // @Injectable({
 //     providedIn: 'root'
@@ -13,23 +13,28 @@ import { setDoc, updateDoc } from '@angular/fire/firestore';
 export abstract class EntitiesServiceBase<T extends EntityBase> {
     constructor(protected db: afs.Firestore){};
 
-    async saveDocument(collection: string, document: T) {
+    async saveDocument<T>(collection: string, document: T) {
         const collectionRef = afs.collection(this.db, collection);
-        const docRef = await afs.addDoc(collectionRef, document)
+        const docRef = await afs.addDoc(collectionRef, document);
+
+        console.log('eSB sD docRef: ', docRef);
 
         return docRef;
     }
 
-    async saveDocumentWithId(collection: string, document: T, id: string) {
+    async saveDocumentWithId<T>(collection: string, document: T, id: string) {
         const collectionRef = afs.collection(this.db, collection);
         const newDocRef = afs.doc(collectionRef, id);
         await setDoc(newDocRef, document);
+        console.log('eSB uD save with id. newDocRef: ', newDocRef);
     }
 
-    async updateDocument(collection: string, update: T, id: string) {
+    async updateDocument<T>(collection: string, update: T, id: string) {
         const collectionRef = afs.collection(this.db, collection);
         const docRef = afs.doc(collectionRef, id);
-        await updateDoc(docRef, update)
+        await updateDoc(docRef, update);
+
+        console.log('eSB uD update: ', docRef);
 
     }
 
@@ -50,17 +55,21 @@ export abstract class EntitiesServiceBase<T extends EntityBase> {
         const collectionRef = afs.collection(this.db, collection);
         const querySnapshot = await afs.getDocs(collectionRef);
 
-        const documents = [];
+        const documents: T[] = [];
 
         querySnapshot.forEach(doc => {
             console.log('eSB lD doc id/data: ', doc.id, doc.data());
-            documents.push(doc.data());
+            documents.push(doc.data() as T);
         })
+
+        return documents;
 
     }
 
-    async deleteDocument() {
-
+    async deleteDocument(collection: string, id: string) {
+        const docRef = afs.doc(this.db, collection, id);
+        const deleteRef = afs.deleteDoc(docRef);
+        return deleteRef;
     }
 
 }
