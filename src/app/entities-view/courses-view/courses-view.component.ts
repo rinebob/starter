@@ -6,6 +6,7 @@ import { Course, Lesson } from '../../common/interfaces';
 import { EntitiesViewBase } from '../entities-view-base.component';
 import { CoursesViewStore } from './courses-view-store';
 import { CoursesService } from 'src/app/services/courses.service';
+import { LessonsService } from 'src/app/services/lessons.service';
 
 @Component({
   selector: 'st-courses-view',
@@ -22,6 +23,7 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
 
   constructor(readonly coursesViewStore: CoursesViewStore,
               readonly coursesService: CoursesService,
+              readonly lessonsService: LessonsService,
     ) { 
     super(coursesViewStore);
   }
@@ -39,8 +41,8 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
 
     });
 
-    this.coursesService.getAllLessons().pipe().subscribe(lessons => {
-      console.log('cV ngOI lessons from courses service: ', lessons);
+    this.lessonsService.getAllLessons().pipe().subscribe(lessons => {
+      console.log('cV ngOI lessons from lessons service: ', lessons);
       this.setAllLessons(lessons);
     });
   }

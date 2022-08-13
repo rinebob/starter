@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
 import {EntitiesCrudBase} from '../entities-crud-base.component';
 import {Course, Lesson} from '../../common/interfaces';
 import {CoursesService} from '../../services/courses.service';
+import {LessonsService} from '../../services/lessons.service';
 
 @Component({
   selector: 'st-courses-crud',
@@ -12,7 +13,9 @@ import {CoursesService} from '../../services/courses.service';
 })
 export class CoursesCrud extends EntitiesCrudBase<Course>  {
   @Output() readonly saveCourse = new EventEmitter<void>();
-  constructor(readonly coursesService: CoursesService) { 
+  constructor(readonly coursesService: CoursesService,
+              readonly lessonsService: LessonsService,
+    ) { 
     super(coursesService);
     this.loadButtonText = 'Load courses';
   }
@@ -60,12 +63,34 @@ export class CoursesCrud extends EntitiesCrudBase<Course>  {
 
     const lessonsCollection = 'lessons';
     const testLesson: Lesson = {
-      id: 'this-is-a-lesson-id',
-      displayName: 'Great lesson',
-      seqNo: 88,
-      duration: 'duration dude',
+      id: '',
+      displayName: 'Such a great lesson',
+      seqNo: 89,
+      duration: 'long duration dude',
       courseId: 'NLnf3uQxtzsbcOxi3wzp',
     }
+
+    // console.log('cC mIH collection/testLesson: ', lessonsCollection, testLesson);
+
+    // save
+    // const docRef = await this.lessonsService.saveDocument(lessonsCollection, testLesson);
+
+    // save with id
+    // await this.lessonsService.saveDocumentWithId(lessonsCollection, testLesson, testLesson.id);
+    
+
+    // update
+    // await this.lessonsService.updateDocument(lessonsCollection, testLesson, '9AD6KlqR5R3RaQIzbWx6');
+
+    // get
+    // const docSnap = await this.lessonsService.getDocument(lessonsCollection, '9AD6KlqR5R3RaQIzbWx6');
+    // const docSnap = await this.lessonsService.getDocument(lessonsCollection, 'this-is-a-lesson-id');
+    // console.log('cC mIH get docSnap data: ', docSnap?.data());
+    // console.log('cC mIH get docSnap id: ', docSnap?.id);
+    
+    // list
+    // const docs = await this.lessonsService.listDocuments(lessonsCollection);
+    // console.log('cC mIH documents: ', docs);
     
   }
 }
