@@ -32,19 +32,16 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
     this.initializeView();
   }
 
-  initializeView() {
-    this.coursesService.getAllCourses().pipe().subscribe(courses => {
-      console.log('cV ngOI courses from courses service: ', courses);
-      this.setSelectedEntity(courses[0]);
-      this.setAllEntities(courses);
-      this.setTableData(courses)
+  async initializeView() {
+    const courses = await this.coursesService.getAllCourses();
+    console.log('cV ngOI courses from courses service: ', courses);
+    this.setSelectedEntity(courses[0]);
+    this.setAllEntities(courses);
+    this.setTableData(courses)
 
-    });
-
-    this.lessonsService.getAllLessons().pipe().subscribe(lessons => {
-      console.log('cV ngOI lessons from lessons service: ', lessons);
-      this.setAllLessons(lessons);
-    });
+    const lessons = await this.lessonsService.getAllLessons();
+    console.log('cV ngOI lessons from lessons service: ', lessons);
+    this.setAllLessons(lessons);
   }
 
   setAllLessons(lessons: Lesson[]) {
