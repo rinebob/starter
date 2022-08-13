@@ -14,6 +14,7 @@ import { EntitiesViewModule } from './entities-view/entities-view.module';
 import { EntitiesPanelModule } from './entities-panel/entities-panel.module';
 import { EntitiesTableModule } from './entities-table/entities-table.module';
 import { EntitiesCrudModule } from './entities-crud/entities-crud.module';
+import { EntityFormModule } from './entity-form/entity-form.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EntitiesCrudModule } from './entities-crud/entities-crud.module';
     EntitiesViewModule,
     EntitiesPanelModule,
     EntitiesTableModule,
-    EntitiesCrudModule
+    EntitiesCrudModule,
+    EntityFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
