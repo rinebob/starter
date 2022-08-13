@@ -1,1 +1,91 @@
-<p>entity-form works!</p>
+
+
+<div class="entity-form-container">
+    <form [formGroup]="courseForm"
+          (ngSubmit)="save()"
+          class="entity-form"
+          autocomplete="off"
+    >
+
+        <!-- ID control -->
+
+        <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput
+                   formControlName="idControl"
+                   placeholder="ID"
+            >
+        </mat-form-field>
+
+        <!-- Display name control -->
+
+        <mat-form-field appearance="outline">
+            <mat-label>Course name</mat-label>
+            <input matInput
+                   formControlName="displayName"
+                   placeholder="Course name"
+            >
+        </mat-form-field>
+
+         <!-- lessonsCount control -->
+        
+         <!-- <mat-form-field appearance="outline" class="number-control">
+            <mat-label>Number of lessons</mat-label>
+            <input matInput
+                   type="number"
+                   formControlName="lessonsCount"
+                   placeholder="Number of lessons"
+            >
+        </mat-form-field> -->
+
+        <!-- sequence number control -->
+        
+        <!-- <mat-form-field appearance="outline" class="number-control">
+            <mat-label>Sequence number</mat-label>
+            <input matInput
+                   type="number"
+                   formControlName="seqNo"
+                   placeholder="Sequence number"
+            >
+        </mat-form-field> -->
+
+        <!-- Icon url control -->
+        
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Icon url</mat-label>
+            <input matInput
+                   formControlName="iconUrl"
+                   placeholder="Icon url"
+            >
+        </mat-form-field> -->
+
+         <!-- Course url control -->
+        
+         <!-- <mat-form-field appearance="outline">
+            <mat-label>Course url</mat-label>
+            <input matInput
+                   formControlName="url"
+                   placeholder="Course url"
+            >
+        </mat-form-field> -->
+
+        <!-- Description control -->
+
+        <mat-form-field appearance="outline" class="description-control">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+                      formControlName="description"
+                      placeholder="Course name"
+            ></textarea>
+        </mat-form-field>
+
+        <button matButton class="submit-button"
+                type="submit"
+        >
+            Save
+
+        </button>
+       
+    </form>
+
+</div>

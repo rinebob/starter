@@ -4,7 +4,7 @@ import { CoursesView } from './courses-view/courses-view.component';
 import { EntitiesCrudModule } from '../entities-crud/entities-crud.module';
 import { EntitiesPanelModule } from '../entities-panel/entities-panel.module';
 import { EntitiesTableModule } from '../entities-table/entities-table.module';
-
+import { EntityFormModule } from '../entity-form/entity-form.module';
 
 
 @NgModule({
@@ -16,6 +16,7 @@ import { EntitiesTableModule } from '../entities-table/entities-table.module';
     EntitiesCrudModule,
     EntitiesPanelModule,
     EntitiesTableModule,
+    EntityFormModule,
   ],
   exports: [
     CoursesView

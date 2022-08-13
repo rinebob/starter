@@ -1,5 +1,13 @@
 
-<st-courses-crud [allEntities]="(allCourses$ | async)!"
+<st-entity-form *ngIf="shouldShowCourses"
+                [inputEntity]="(selectedCourse$ | async)!"
+>
+
+</st-entity-form>
+
+
+
+<!-- <st-courses-crud [allEntities]="(allCourses$ | async)!"
 >
 
 </st-courses-crud>
@@ -9,5 +17,5 @@
                        [tableData]="(tableData$ | async)!"
 
 >
-</st-courses-list-panel>
+</st-courses-list-panel> -->
 

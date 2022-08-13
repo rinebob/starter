@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {take} from 'rxjs/operators';
 
 import { Course, Lesson } from '../../common/interfaces';
@@ -20,6 +20,8 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
   selectedCourse$ = this.coursesViewStore.selectedEntity$;
   coursesTableData$ = this.coursesViewStore.tableData$;
   allLessons$: Observable<Lesson[]> = this.coursesViewStore.allLessons$;
+
+  showCoursesBS = new BehaviorSubject<boolean>(true)
 
   constructor(readonly coursesViewStore: CoursesViewStore,
               readonly coursesService: CoursesService,
@@ -46,5 +48,13 @@ export class CoursesView extends EntitiesViewBase<Course> implements OnInit {
 
   setAllLessons(lessons: Lesson[]) {
     this.coursesViewStore.setAllLessons(lessons);
+  }
+
+  get shouldShowCourses() {
+    return this.showCoursesBS.value;
+  }
+
+  toggleView() {
+    this.showCoursesBS.next(!this.showCoursesBS.value);
   }
 }
