@@ -26,6 +26,7 @@ export interface Course extends EntityBase {
     description: string;
     iconUrl: string;
     lessonsCount: number;
+    lessons?: Lesson[];
     categories?: string[];
     seqNo: number;
     url: string;

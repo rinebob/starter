@@ -1,7 +1,7 @@
 import {Component, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { EntityBase } from '../common/interfaces';
-import {ENTITY_INITIALIZER} from '../common/constants';
+
 @Component({
   template:  ``,
 })

@@ -18,7 +18,7 @@ export class CoursesTable extends EntitiesTableBase<Course> {
     super();
     this.tableColumnsMetadata = COURSES_TABLE_COLUMNS;
 
-    this.tableData$.pipe(takeUntil(this.destroy)).subscribe(data => {
+    this.inputData$.pipe(takeUntil(this.destroy)).subscribe(data => {
       this.tableDataBS.next(this.sortData(data));  
     });
   }

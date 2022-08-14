@@ -8,14 +8,18 @@ import {EntitiesTableColumn, EntityBase} from '../common/interfaces';
 export abstract class EntitiesTableBase<T extends EntityBase> implements OnDestroy {
   readonly destroy = new Subject<void>()
   @Input()
-  set tableData(tableData: T[]) {
-    this.tableDataBS.next(tableData);
+  set inputData(inputData: T[]) {
+    console.log('eTB @i input table data: ', inputData);
+    this.inputDataBS.next(inputData);
     this.setColumns();
 
   }
-  get tableData() {
-    return this.tableDataBS.value;
+  get inputData() {
+    return this.inputDataBS.value;
   }
+  inputDataBS = new BehaviorSubject<T[]>([]);
+  inputData$: Observable<T[]> = this.inputDataBS;
+
   tableDataBS = new BehaviorSubject<T[]>([]);
   tableData$: Observable<T[]> = this.tableDataBS;
 
