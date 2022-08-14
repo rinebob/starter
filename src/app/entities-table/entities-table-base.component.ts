@@ -1,39 +1,37 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, Input, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import {EntitiesTableColumn, EntityBase} from '../common/interfaces';
-import {compare} from '../common/utils';
 
 @Component({
   template: ``,
 })
-export abstract class EntitiesTableBase<T extends EntityBase> implements OnInit {
+export abstract class EntitiesTableBase<T extends EntityBase> implements OnDestroy {
+  readonly destroy = new Subject<void>()
   @Input()
   set tableData(tableData: T[]) {
-    this.tableDataBS.next(this.sortData(tableData, 'seqNo'));
+    this.tableDataBS.next(tableData);
+    this.setColumns();
 
   }
   get tableData() {
     return this.tableDataBS.value;
   }
   tableDataBS = new BehaviorSubject<T[]>([]);
+  tableData$: Observable<T[]> = this.tableDataBS;
 
   visibleColumns: string[] = []
   tableColumnsMetadata: EntitiesTableColumn[] = [];
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
+  }
+
+  setColumns() {
     const columns = Object.values(this.tableColumnsMetadata).map(column => column.name);
     this.visibleColumns = [...columns];
   }
-
-  sortData(data: T[], column: string): T[] {
-    const sortedData = data.sort((a, b) => {
-      return compare(a[column], b[column], true);
-    });
-
-    return sortedData;
-
-  }
-
+  
 }

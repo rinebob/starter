@@ -1,7 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {takeUntil} from 'rxjs/operators';
 import {Course} from '../../common/interfaces';
 import { EntitiesTableBase } from '../entities-table-base.component';
 import {COURSES_TABLE_COLUMNS} from '../../common/constants';
+import {compare} from '../../common/utils';
+
 
 @Component({
   selector: 'st-courses-table',
@@ -14,5 +17,17 @@ export class CoursesTable extends EntitiesTableBase<Course> {
   constructor() {
     super();
     this.tableColumnsMetadata = COURSES_TABLE_COLUMNS;
+
+    this.tableData$.pipe(takeUntil(this.destroy)).subscribe(data => {
+      this.tableDataBS.next(this.sortData(data));  
+    });
+  }
+
+  sortData(data: Course[]): Course[] {
+    const sortedData = data.sort((a, b) => {
+      return compare(a.seqNo, b.seqNo, true);
+    });
+
+    return sortedData;
   }
 }

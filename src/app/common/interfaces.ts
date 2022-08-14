@@ -26,8 +26,7 @@ export interface Course extends EntityBase {
     description: string;
     iconUrl: string;
     lessonsCount: number;
-    // causes the sort function to mismatch type
-    // categories: string[];
+    categories?: string[];
     seqNo: number;
     url: string;
 }
