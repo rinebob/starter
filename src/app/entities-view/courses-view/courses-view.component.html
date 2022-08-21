@@ -10,12 +10,16 @@
 <!-- <st-courses-crud [allEntities]="(allCourses$ | async)!"
 >
 
-</st-courses-crud>
+</st-courses-crud> -->
 
-<st-courses-list-panel [selectedEntity]="(selectedCourse$ | async)!"
+<!-- <st-courses-list-panel [selectedEntity]="(selectedCourse$ | async)!"
                        [allEntities]="(allCourses$ | async)!"
                        [tableData]="(tableData$ | async)!"
 
 >
 </st-courses-list-panel> -->
+<st-courses-table [inputData]="(allCourses$ | async)!"
+                  (selectedEntity)="handleSelectedEntity($event)"  
+>
+</st-courses-table>
 

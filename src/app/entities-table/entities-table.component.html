@@ -13,7 +13,7 @@
         </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="visibleColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: visibleColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: visibleColumns;" (click)="handleEntitySelection(row)"></tr>
 
     </table>
 

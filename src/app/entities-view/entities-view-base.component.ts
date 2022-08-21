@@ -36,4 +36,8 @@ export abstract class EntitiesViewBase<T extends EntityBase>  {
 
   }
 
+  handleSelectedEntity(entity: T) {
+    this.setSelectedEntity(entity);
+  }
+
 }

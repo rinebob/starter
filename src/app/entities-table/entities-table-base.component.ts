@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import {EntitiesTableColumn, EntityBase} from '../common/interfaces';
 
@@ -20,6 +20,8 @@ export abstract class EntitiesTableBase<T extends EntityBase> implements OnDestr
   inputDataBS = new BehaviorSubject<T[]>([]);
   inputData$: Observable<T[]> = this.inputDataBS;
 
+  @Output() readonly selectedEntity = new EventEmitter<T>();
+
   tableDataBS = new BehaviorSubject<T[]>([]);
   tableData$: Observable<T[]> = this.tableDataBS;
 
@@ -36,6 +38,11 @@ export abstract class EntitiesTableBase<T extends EntityBase> implements OnDestr
   setColumns() {
     const columns = Object.values(this.tableColumnsMetadata).map(column => column.name);
     this.visibleColumns = [...columns];
+  }
+
+  handleEntitySelection(entity: T) {
+    this.selectedEntity.emit(entity);
+
   }
   
 }
